@@ -14,8 +14,8 @@ func TestRandomizeSchedule_Same(t *testing.T) {
 	tests := []string{
 		"*/5 * * * *",
 		"invalid",
-		"0 abc * * *",
-		"100 10 * * *",
+		"* abc * * *",
+		"100 * * * *",
 		"0 0 *",
 		"0 0 * * * *",
 	}
@@ -23,7 +23,7 @@ func TestRandomizeSchedule_Same(t *testing.T) {
 	for _, tc := range tests {
 		v := randomizeSchedule(tc, rng)
 		if v != tc {
-			t.Error(tc, v)
+			t.Error(tc, "!=", v)
 		}
 	}
 }
