@@ -14,6 +14,8 @@ func TestRandomizeSchedule_Same(t *testing.T) {
 	tests := []string{
 		"*/5 * * * *",
 		"invalid",
+		"0 abc * * *",
+		"100 10 * * *",
 		"0 0 *",
 		"0 0 * * * *",
 	}
